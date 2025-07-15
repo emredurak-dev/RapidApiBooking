@@ -157,36 +157,6 @@ The application is fully responsive and works seamlessly across:
 - **Efficient Loading**: Smart image loading strategies
 - **Caching**: Browser caching for static assets
 
-## 🔮 Future Enhancements
-
-- User authentication and booking management
-- Favorite hotels functionality
-- Price comparison features
-- Multi-language support
-- Payment integration
-- Review and rating system
-- Map integration
-- Email notifications
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 📞 Support
-
-If you encounter any issues or have questions:
-- Create an issue in the GitHub repository
-- Check the [RapidAPI Booking.com documentation](https://rapidapi.com/tipsters/api/booking-com18/)
-- Review the ASP.NET Core MVC documentation
-
 ## 🙏 Acknowledgments
 
 - RapidAPI for providing the Booking.com API
@@ -197,3 +167,9 @@ If you encounter any issues or have questions:
 ---
 
 **Built with ❤️ using ASP.NET Core and RapidAPI** 
+
+## 📷 Screenshots
+
+<details> <summary>🏠 <strong>Home Page (Booking Index)</strong></summary> <img src="https://github.com/user-attachments/assets/e2b7d28c-8e56-4df5-8ece-3f181c3a43c8" width="800" alt="Booking Index Screenshot" /> </details>
+<details> <summary>🔎 <strong>Search Reservation Page</strong></summary> <img src="https://github.com/user-attachments/assets/5ae0a3cf-d8d0-4bb5-b3b0-9b8f096b3a6d" width="800" alt="Search Reservation Screenshot" /> </details>
+<details> <summary>🏨 <strong>Hotel Detail Page</strong></summary> <img src="https://github.com/user-attachments/assets/817771ab-9b9f-4437-b1b4-65fcee1846a3" width="800" alt="Hotel Detail Screenshot" /> </details>
