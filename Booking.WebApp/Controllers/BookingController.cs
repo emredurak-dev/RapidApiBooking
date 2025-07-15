@@ -204,7 +204,6 @@ namespace Booking.WebApp.Controllers
                     price = $"{grossAmount.value} {grossAmount.currency}";
                 }
 
-                // Arkadaşının kodundaki gibi block yapısını kullan
                 var block = data?.data?.block;
                 var photos = block?[0]?.photos;
                 if (photos != null && photos.Count > 0)
