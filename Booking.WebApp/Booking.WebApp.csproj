@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\deluxe-master\.DS_Store" />
+    <None Include="wwwroot\deluxe-master\css\.DS_Store" />
+    <None Include="wwwroot\deluxe-master\css\bootstrap\.DS_Store" />
+    <None Include="wwwroot\deluxe-master\css\css\.DS_Store" />
+    <None Include="wwwroot\deluxe-master\fonts\.DS_Store" />
+    <None Include="wwwroot\deluxe-master\fonts\flaticon\.DS_Store" />
+    <None Include="wwwroot\deluxe-master\fonts\ionicons\fonts\.DS_Store" />
+    <None Include="wwwroot\deluxe-master\images\.DS_Store" />
+    <None Include="wwwroot\deluxe-master\js\.DS_Store" />
+    <None Include="wwwroot\deluxe-master\scss\.DS_Store" />
+    <None Include="wwwroot\sogo-master\.DS_Store" />
+    <None Include="wwwroot\sogo-master\fonts\.DS_Store" />
+    <None Include="wwwroot\sogo-master\fonts\ionicons\.DS_Store" />
+    <None Include="wwwroot\sogo-master\images\.DS_Store" />
+    <None Include="wwwroot\sogo-master\js\.DS_Store" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+</Project>

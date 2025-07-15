@@ -1,0 +1,60 @@
+﻿@model Booking.WebApp.Models.HotelDetailViewModel
+@if (Model == null)
+{
+    <h2 style="color:darkred;">HATA: Model null geldi!</h2>
+}
+@{
+    ViewData["Title"] = "Hotel Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="site-hero inner-page overlay" style="background-image: url(/sogo-master/images/hero_4.jpg)" data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row site-hero-inner justify-content-center align-items-center">
+            <div class="col-md-10 text-center" data-aos="fade">
+                <h1 class="heading mb-3">@Model.HotelName</h1>
+                <ul class="custom-breadcrumbs mb-4">
+                    <li><a href="/">Home</a></li>
+                    <li>&bullet;</li>
+                    <li><a href="/Booking">Hotels</a></li>
+                    <li>&bullet;</li>
+                    <li>@Model.HotelName</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="hotel-detail-card" style="background: #fff; border-radius: 18px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); overflow: hidden;">
+                    <div class="hotel-detail-img">
+                        <img src="@(string.IsNullOrEmpty(Model.CoverImageURL) ? "~/sogo-master/images/hero_4.jpg" : Model.CoverImageURL)" 
+                             alt="@Model.HotelName" 
+                             style="width: 100%; height: 320px; object-fit: cover;" />
+                    </div>
+                    <div class="hotel-detail-info" style="padding: 32px 28px 24px 28px;">
+                        <h2 style="font-size: 2.1rem; font-weight: 700; margin-bottom: 12px; color: #2d2d2d;">@Model.HotelName</h2>
+                        <div class="city" style="font-size: 1.1rem; color: #888; margin-bottom: 18px;">
+                            <i class="fa fa-map-marker-alt"></i> @Model.City
+                        </div>
+                        <div class="price" style="font-size: 1.5rem; color: #007bff; font-weight: 600; margin-bottom: 18px;">
+                            <i class="fa fa-tag"></i> @Model.Price
+                        </div>
+                        <div style="margin-bottom: 18px;">
+                            <strong>View:</strong> Sea View<br/>
+                            <strong>Bed:</strong> 1
+                        </div>
+                        <p>Welcome to our hotel located in <strong>@Model.City</strong>. We offer comfort, convenience, and premium service for all our guests.</p>
+                        <p>Book now and enjoy your stay at <strong>@Model.HotelName</strong>. Whether for business or vacation, you'll love it here.</p>
+                        <a href="javascript:history.back()" class="back-link" style="display: inline-block; margin-top: 18px; color: #007bff; text-decoration: none; font-weight: 500;">
+                            <i class="fa fa-arrow-left"></i> Geri Dön
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

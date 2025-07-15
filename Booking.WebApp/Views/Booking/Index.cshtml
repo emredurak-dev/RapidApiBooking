@@ -1,0 +1,182 @@
+﻿@{
+    ViewData["Title"] = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section class="site-hero overlay" style="background-image: url(/sogo-master/images/hero_4.jpg)" data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row site-hero-inner justify-content-center align-items-center">
+            <div class="col-md-10 text-center" data-aos="fade-up">
+                <span class="custom-caption text-uppercase text-white d-block  mb-3">Welcome To 5 <span class="fa fa-star text-primary"></span>   Hotel</span>
+                <h1 class="heading">A Best Place To Stay</h1>
+            </div>
+        </div>
+    </div>
+
+    <a class="mouse smoothscroll" href="#next">
+        <div class="mouse-icon">
+            <span class="mouse-wheel"></span>
+        </div>
+    </a>
+</section>
+<!-- Diğer tüm bölümleri aşağıda sadece url’ler düzeltilmiş şekilde -->
+
+<section class="section bg-light pb-0">
+    <div class="container">
+
+        <div class="row check-availabilty" id="next">
+            <div class="block-32" data-aos="fade-up" data-aos-offset="-200">
+                <form asp-controller="Booking" asp-action="SearchReservation" method="post">
+                    <div class="row">
+                        <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
+                            <label for="query" class="font-weight-bold text-black">City</label>
+                            <input type="text" id="query" name="query" class="form-control" required placeholder="e.g. Istanbul" />
+                        </div>
+
+                        <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
+                            <label for="checkinDate" class="font-weight-bold text-black">Check-in Date</label>
+                            <input type="date" id="checkinDate" name="checkinDate" class="form-control" required value="@DateTime.Today.ToString("yyyy-MM-dd")" />
+                        </div>
+
+                        <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
+                            <label for="checkoutDate" class="font-weight-bold text-black">Check-out Date</label>
+                            <input type="date" id="checkoutDate" name="checkoutDate" class="form-control" required value="@DateTime.Today.AddDays(1).ToString("yyyy-MM-dd")" />
+                        </div>
+
+                        <div class="col-md-6 mb-3 mb-md-0 col-lg-3">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="adults" class="font-weight-bold text-black">Adults</label>
+                                    <input type="number" id="adults" name="adults" min="1" class="form-control" value="1" required placeholder="1" />
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="children" class="font-weight-bold text-black">Children</label>
+                                    <input type="number" id="children" name="children" min="0" class="form-control" value="0" placeholder="0" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 text-center mt-4">
+                            <button type="submit" class="btn btn-primary btn-lg px-5">Check Hotels</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+
+
+        </div>
+    </div>
+</section>
+<!-- Welcome Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-12 col-lg-7 ml-auto order-lg-2 position-relative mb-5" data-aos="fade-up">
+                <figure class="img-absolute">
+                    <img src="@Url.Content("~/sogo-master/images/food-1.jpg")" alt="Image" class="img-fluid">
+                </figure>
+                <img src="@Url.Content("~/sogo-master/images/img_1.jpg")" alt="Image" class="img-fluid rounded">
+            </div>
+            <div class="col-md-12 col-lg-4 order-lg-1" data-aos="fade-up">
+                <h2 class="heading">Welcome!</h2>
+                <p class="mb-4">Far far away, behind the word mountains...</p>
+                <p><a href="#" class="btn btn-primary text-white py-2 mr-3">Learn More</a> <span class="mr-3 font-family-serif"><em>or</em></span> <a href="https://vimeo.com/channels/staffpicks/93951774" data-fancybox class="text-uppercase letter-spacing-1">See video</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Rooms & Suites -->
+<section class="section">
+    <div class="container">
+        <div class="row justify-content-center text-center mb-5">
+            <div class="col-md-7">
+                <h2 class="heading" data-aos="fade-up">Rooms & Suites</h2>
+                <p data-aos="fade-up" data-aos-delay="100">Far far away, behind the word mountains...</p>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Room cards -->
+            <!-- ... (her img src: @Url.Content("~/...") ile) -->
+        </div>
+    </div>
+</section>
+
+<!-- Photos Slider -->
+<section class="section slider-section bg-light">
+    <div class="container">
+        <!-- heading -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
+                    @for (int i = 1; i <= 7; i++)
+                    {
+                        <div class="slider-item">
+                            <a href="@Url.Content($"~/sogo-master/images/slider-{i}.jpg")" data-fancybox="images">
+                                <img src="@Url.Content($"~/sogo-master/images/slider-{i}.jpg")" alt="Image placeholder" class="img-fluid" />
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section class="section testimonial-section">
+    <div class="container">
+        <div class="row justify-content-center text-center mb-5">
+            <div class="col-md-7">
+                <h2 class="heading" data-aos="fade-up">People Says</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="js-carousel-2 owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
+                @for (int i = 1; i <= 3; i++)
+                {
+                    <div class="testimonial text-center slider-item">
+                        <div class="author-image mb-3">
+                            <img src="@Url.Content($"~/sogo-master/images/person_{i}.jpg")" alt="Person" class="rounded-circle mx-auto" />
+                        </div>
+                        <blockquote>
+                            <p>&ldquo;Lorem ipsum sample testimonial...&rdquo;</p>
+                        </blockquote>
+                        <p><em>&mdash; Person @i</em></p>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Events -->
+<section class="section blog-post-entry bg-light">
+    <div class="container">
+        <div class="row justify-content-center text-center mb-5">
+            <div class="col-md-7">
+                <h2 class="heading" data-aos="fade-up">Events</h2>
+                <p data-aos="fade-up">Far far away, behind the word mountains...</p>
+            </div>
+        </div>
+        <div class="row">
+            @for (int i = 1; i <= 3; i++)
+            {
+                <div class="col-lg-4 col-md-6 col-sm-6 col-12 post" data-aos="fade-up" data-aos-delay="@(i * 100)">
+                    <div class="media media-custom d-block mb-4 h-100">
+                        <a href="#" class="mb-4 d-block">
+                            <img src="@Url.Content($"~/sogo-master/images/img_{i}.jpg")" alt="Event image" class="img-fluid" />
+                        </a>
+                        <div class="media-body">
+                            <span class="meta-post">February 26, 2018</span>
+                            <h2 class="mt-0 mb-3"><a href="#">Sample Event Title @i</a></h2>
+                            <p>Sample event description for @i.</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

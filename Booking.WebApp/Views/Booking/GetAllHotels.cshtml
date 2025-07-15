@@ -1,0 +1,132 @@
+﻿@model List<HotelViewModel>
+@{
+    ViewData["Title"] = "GetAllHotels";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var checkinDate = ViewBag.CheckinDate as string;
+    var checkoutDate = ViewBag.CheckoutDate as string;
+}
+
+<section class="site-hero inner-page overlay" style="background-image: url(/sogo-master/images/hero_4.jpg)" data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row site-hero-inner justify-content-center align-items-center">
+            <div class="col-md-10 text-center" data-aos="fade">
+                <h1 class="heading mb-3">Rooms</h1>
+                <ul class="custom-breadcrumbs mb-4">
+                    <li><a href="/">Home</a></li>
+                    <li>&bullet;</li>
+                    <li>Rooms</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <a class="mouse smoothscroll" href="#next">
+        <div class="mouse-icon">
+            <span class="mouse-wheel"></span>
+        </div>
+    </a>
+</section>
+
+<!-- Rezervasyon Formu -->
+<section class="section pb-4">
+    <div class="container">
+        <div class="row check-availabilty" id="next">
+            <div class="block-32" data-aos="fade-up" data-aos-offset="-200">
+                <form asp-controller="Booking" asp-action="SearchReservation" method="post">
+                    <div class="row">
+                        <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
+                            <label for="query" class="font-weight-bold text-black">City</label>
+                            <input type="text" id="query" name="query" class="form-control" required placeholder="e.g. Istanbul" />
+                        </div>
+
+                        <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
+                            <label for="checkinDate" class="font-weight-bold text-black">Check-in Date</label>
+                            <input type="date" id="checkinDate" name="checkinDate" class="form-control" required value="@DateTime.Today.ToString("yyyy-MM-dd")" />
+                        </div>
+
+                        <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
+                            <label for="checkoutDate" class="font-weight-bold text-black">Check-out Date</label>
+                            <input type="date" id="checkoutDate" name="checkoutDate" class="form-control" required value="@DateTime.Today.AddDays(1).ToString("yyyy-MM-dd")" />
+                        </div>
+
+                        <div class="col-md-6 mb-3 mb-md-0 col-lg-3">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="adults" class="font-weight-bold text-black">Adults</label>
+                                    <input type="number" id="adults" name="adults" min="1" class="form-control" value="1" required placeholder="1" />
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="children" class="font-weight-bold text-black">Children</label>
+                                    <input type="number" id="children" name="children" min="0" class="form-control" value="0" placeholder="0" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 text-center mt-4">
+                            <button type="submit" class="btn btn-primary btn-lg px-5">Check Hotels</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Otel Listesi -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
+                    <a href="#" class="room d-block">
+                        <figure class="img-wrap">
+                            <a class="hotel-link" href="@Url.Action("HotelDetail", "Booking", new { hotelId = item.HotelId, checkinDate = checkinDate, checkoutDate = checkoutDate })">
+                                <img src="@item.CoverImageUrl"
+                                     alt="@item.HotelName"
+                                     class="img-fluid mb-3"
+                                     style="height: 250px; object-fit: cover; width: 100%;">
+                        </figure>
+                        <div class="p-3 text-center room-info">
+                            <h2>@item.HotelName</h2>
+                            <span class="text-uppercase letter-spacing-1">@item.ReviewScore / @item.ReviewScoreWord</span>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- Kampanya Alanı -->
+<section class="section bg-light">
+    <div class="container">
+        <div class="row justify-content-center text-center mb-5">
+            <div class="col-md-7">
+                <h2 class="heading" data-aos="fade">Great Offers</h2>
+                <p data-aos="fade">Lorem ipsum... kampanya açıklamaları vs.</p>
+            </div>
+        </div>
+
+        <div class="site-block-half d-block d-lg-flex bg-white" data-aos="fade" data-aos-delay="100">
+            <a href="#" class="image d-block bg-image-2" style="background-image: url('/sogo-master/images/img_1.jpg');"></a>
+            <div class="text">
+                <span class="d-block mb-4"><span class="display-4 text-primary">$199</span> <span class="text-uppercase letter-spacing-2">/ per night</span> </span>
+                <h2 class="mb-4">Family Room</h2>
+                <p>Detay açıklama yazısı buraya...</p>
+                <p><a href="#" class="btn btn-primary text-white">Book Now</a></p>
+            </div>
+        </div>
+
+        <div class="site-block-half d-block d-lg-flex bg-white" data-aos="fade" data-aos-delay="200">
+            <a href="#" class="image d-block bg-image-2 order-2" style="background-image: url('/sogo-master/images/img_2.jpg');"></a>
+            <div class="text order-1">
+                <span class="d-block mb-4"><span class="display-4 text-primary">$299</span> <span class="text-uppercase letter-spacing-2">/ per night</span> </span>
+                <h2 class="mb-4">Presidential Room</h2>
+                <p>Detay açıklama yazısı buraya...</p>
+                <p><a href="#" class="btn btn-primary text-white">Book Now</a></p>
+            </div>
+        </div>
+    </div>
+</section>
